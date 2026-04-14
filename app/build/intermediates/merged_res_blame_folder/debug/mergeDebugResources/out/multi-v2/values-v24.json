@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sbnkj.wechatmigrator.app-mergeDebugResources-34:/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Maple\\.gradle\\caches\\9.3.1\\transforms\\930409db7f93bed6d671bf9e7e3c4acb\\workspace\\transformed\\appcompat-1.7.0\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                }
+            ]
+        }
+    ]
+}

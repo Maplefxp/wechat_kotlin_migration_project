@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sbnkj.wechatmigrator.app-mergeDebugResources-34:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Maple\\.gradle\\caches\\9.3.1\\transforms\\930409db7f93bed6d671bf9e7e3c4acb\\workspace\\transformed\\appcompat-1.7.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}
