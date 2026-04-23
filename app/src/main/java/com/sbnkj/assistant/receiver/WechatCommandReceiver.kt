@@ -9,6 +9,9 @@ import com.sbnkj.assistant.core.model.WechatUserSlot
 import com.sbnkj.assistant.service.WechatSyncService
 import org.json.JSONObject
 
+/**
+ * 接收远程广播命令（补传/全量备份等）
+ */
 class WechatCommandReceiver : BroadcastReceiver() {
 
     companion object {

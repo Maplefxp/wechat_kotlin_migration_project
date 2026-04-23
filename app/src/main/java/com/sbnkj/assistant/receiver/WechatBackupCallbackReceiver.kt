@@ -6,6 +6,9 @@ import android.content.Intent
 import android.util.Log
 import com.sbnkj.assistant.core.backup.WechatBackupStateMachine
 
+/**
+ * 备份回调广播接收器，监听备份完成回调
+ */
 class WechatBackupCallbackReceiver : BroadcastReceiver() {
 
     companion object {

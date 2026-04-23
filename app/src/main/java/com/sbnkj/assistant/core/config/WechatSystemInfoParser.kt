@@ -6,6 +6,9 @@ import com.sbnkj.assistant.core.util.HashUtils
 import java.io.File
 import java.io.ObjectInputStream
 
+/**
+ * 微信系统信息解析器，解析 systemInfo.cfg 获取 UIN/IMEI
+ */
 class WechatSystemInfoParser {
 
     fun parse(slot: WechatUserSlot, cfgFile: File): WechatIdentity {
