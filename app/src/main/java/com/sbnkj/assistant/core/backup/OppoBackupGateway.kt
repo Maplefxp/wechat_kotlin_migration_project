@@ -12,8 +12,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
 class OppoBackupGateway(
-    private val context: Context,
-    private val packageName: String = context.packageName
+    private val context: Context
 ) : BackupGateway {
 
     companion object {

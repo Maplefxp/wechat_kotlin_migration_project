@@ -22,8 +22,6 @@ class WechatDatabaseOpener {
 
         SqlCipherLoader.load()
 
-        // ⚠️ 关键修复：使用 SQLiteDatabaseHook 执行 PRAGMA cipher_migrate
-        // 这是为了确保能打开不同版本微信创建的数据库
         val hook = object : SQLiteDatabaseHook {
             override fun preKey(connection: SQLiteConnection) {
                 // 密钥设置前的回调（通常为空）
@@ -32,11 +30,6 @@ class WechatDatabaseOpener {
 
             override fun postKey(connection: SQLiteConnection) {
 
-                // 密钥设置后的回调
-                // 迁移到最新的 cipher 版本，确保兼容性
-                // Log.d(TAG, "postKey: 执行 PRAGMA cipher_migrate")
-                // database?.rawExecSQL("PRAGMA cipher_migrate;")
-                // Log.d(TAG, "postKey: cipher_migrate 完成")
                 Log.d(TAG, "postKey: 注入微信专属 SQLCipher 解密参数")
                 try {
                     connection.executeForLong("PRAGMA cipher_migrate;", null, null);
@@ -53,10 +46,10 @@ class WechatDatabaseOpener {
                 password,
                 null,
                 null,
-                hook  // ⚠️ 传入 hook，执行 cipher_migrate
+                hook
             )
-            Log.d(TAG, "✅ 数据库打开成功")
             Log.d(TAG, "=========================================")
+            Log.d(TAG, "✅ 数据库打开成功")
             db
         } catch (e: Exception) {
             Log.e(TAG, "❌ 数据库打开失败", e)
@@ -71,17 +64,6 @@ class WechatDatabaseOpener {
         Log.d(TAG, "尝试打开数据库（可能未加密）: ${file.absolutePath}")
 
         SqlCipherLoader.load()
-
-        // val hook = object : SQLiteDatabaseHook {
-        //     override fun preKey(database: SQLiteDatabase?) {
-        //         Log.d(TAG, "preKey: 准备设置密钥")
-        //     }
-        //
-        //     override fun postKey(database: SQLiteDatabase?) {
-        //         Log.d(TAG, "postKey: 执行 PRAGMA cipher_migrate")
-        //         database?.rawExecSQL("PRAGMA cipher_migrate;")
-        //     }
-        // }
         val hook = object : SQLiteDatabaseHook {
             override fun preKey(connection: SQLiteConnection) {
             }
